@@ -66,4 +66,20 @@ class PageController extends Controller
     {
         return $sitemapService->render();
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showContactForm()
+    {
+        return view('app.contact', ['hasCaptcha'=>$this->hasCaptcha()]);
+    }
+
+    /**
+     * @return bool
+     */
+    private function hasCaptcha()
+    {
+        return !empty(env('GOOGLE_NOCAPTCHA_SITEKEY')) && strpos(env('GOOGLE_NOCAPTCHA_SECRET'), 'google') === false;
+    }
 }

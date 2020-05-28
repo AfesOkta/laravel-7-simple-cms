@@ -1,4 +1,4 @@
-<section class="section">
+<section class="content">
     <div class="container">
         <div class="columns">
             <div class="column is-12">
